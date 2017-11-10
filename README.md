@@ -1,3 +1,4 @@
+
 # TestAndroidApp
 大学の講義でAndroidアプリを作成するので使いそうな機能とか使ってみてます。
 
@@ -26,6 +27,9 @@
 実行するときは自己責任でお願いします。
 
 ## 実装画面
-![MainActivity](./image/Screenshot_20171110-181723.png)
-![NextActivity](./image/Screenshot_20171110-181727.png)
-![UserListActivity](./image/Screenshot_20171110-181732.png)
+<img src="./image/Screenshot_20171110-181723.png" width="300">
+MainActivity
+<img src="./image/Screenshot_20171110-181727.png" width="300">
+NextActivity
+<img src="./image/Screenshot_0171110-181732.png" width="300">
+UserListActivity
