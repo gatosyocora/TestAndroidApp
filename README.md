@@ -24,3 +24,8 @@
 
 たぶん大丈夫だと思いますが、アプリによってスマホに異常をきたす可能性があるので
 実行するときは自己責任でお願いします。
+
+## 実装画面
+![MainActivity](./image/Screenshot_20171110-181723.png)
+![NextActivity](./image/Screenshot_20171110-181727.png)
+![UserListActivity](./image/Screenshot_20171110-181732.png)
