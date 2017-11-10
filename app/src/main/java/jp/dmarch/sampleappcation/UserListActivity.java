@@ -16,31 +16,18 @@ public class UserListActivity extends AppCompatActivity {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_userlist);
 
-        ArrayList<UserData> users = createUsers(); // ユーザのリストを作成
-
         ListView list = (ListView) findViewById(R.id.listView); // ユーザのリストを表示するListViewを紐づけ
+
+        Globals globals = (Globals)this.getApplication(); // ユーザのリストを扱うために宣言
 
         // ListViewにArrayListの内容を表示するためAdapterを設定
         // SimpleAdapter(わからん, ArrayList<Map<String, String>>, リストの1要素を設計するlayoutファイル, 表示する情報のキー, 表示する情報を格納するView)
-        SimpleAdapter adapter = new SimpleAdapter(this, getMapList(users), R.layout.item,
+        SimpleAdapter adapter = new SimpleAdapter(this, getMapList(globals.getUsersData()), R.layout.item,
                 new String[]{ "name", "age", "gender" }, new int[] { R.id.textView4, R.id.textView5, R.id.textView6});
         adapter.setViewBinder(new ColorFrameViewBinder()); // 性別の文字色を変えるために設定
         // ↑ 写真の表示や枠線の色を動的に変化させる場合に必要
         list.setAdapter(adapter); // ListViewにAdapterを設定
 
-    }
-
-    // ユーザのリストを作成するメソッド
-    public ArrayList<UserData> createUsers() {
-        ArrayList<UserData> list = new ArrayList<UserData>(); // UserDataのオブジェクトを格納するリストを作成
-
-        // 新しいUserDataクラスのオブジェクトを作成（インスタンス化）し、listに追加
-        list.add(new UserData("アリス", 15, "女"));
-        list.add(new UserData("ボブ", 22, "男"));
-        list.add(new UserData("チャーリー", 18, "男"));
-        list.add(new UserData("デイブ", 20, "男"));
-
-        return list;
     }
 
     // ユーザのリスト(ArrayList<UserData>)をSimpleAdapterを使ってListViewに表示するために

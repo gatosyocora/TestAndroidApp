@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int NEXT_ACTIVITY_ID = 1; // 定数 NextActivityを示すID
@@ -21,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); // 親クラスのメソッドを実行
         setContentView(R.layout.activity_main); // 画面構成をおこなうlayoutファイル(xml)の指定
-        Log.d("call","onCreate"); // AndroidStudioのログ(Logcat)に表示
+        Log.d("call","onCreate"); // AndroidStudioのログ(Logcat)
+
+        // ユーザのリストの作成
+        Globals globals = (Globals)this.getApplication();
+        globals.createUsers();
 
         // activity_mainで用意したボタンの使用（Listenerの設定）
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
