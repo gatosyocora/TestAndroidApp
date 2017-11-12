@@ -24,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // 画面構成をおこなうlayoutファイル(xml)の指定
         Log.d("call","onCreate"); // AndroidStudioのログ(Logcat)
 
-        // ユーザのリストの作成
-        Globals globals = (Globals)this.getApplication();
-        globals.createUsers();
+        //new DBHelper(this).deleteTable();
 
         // activity_mainで用意したボタンの使用（Listenerの設定）
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
