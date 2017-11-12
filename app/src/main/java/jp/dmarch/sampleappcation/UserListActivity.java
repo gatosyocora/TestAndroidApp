@@ -11,9 +11,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class UserListActivity extends AppCompatActivity {
 
     DBHelper dbHelper;
+    ArrayList<Map<String, String>> usersList;
 
     @Override
     protected void onCreate(Bundle saveInstanceState) {
@@ -24,15 +28,11 @@ public class UserListActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this); // DBを操作するクラスを宣言
 
-        // データを追加
-        dbHelper.createUser("アリス",15,"女");
-        dbHelper.createUser("ボブ", 22, "男");
-        dbHelper.createUser("チャーリー", 18, "男");
-        dbHelper.createUser("デイブ", 20, "男");
+        usersList = dbHelper.getUsers(); // ユーザ情報のリストを取得
 
         // ListViewにArrayListの内容を表示するためAdapterを設定
         // SimpleAdapter(わからん, ArrayList<Map<String, String>>, リストの1要素を設計するlayoutファイル, 表示する情報のキー, 表示する情報を格納するView)
-        SimpleAdapter adapter = new SimpleAdapter(this, dbHelper.getUsers(), R.layout.item,
+        SimpleAdapter adapter = new SimpleAdapter(this, usersList, R.layout.item,
                 new String[]{ "name", "age", "gender" }, new int[] { R.id.textView4, R.id.textView5, R.id.textView6});
 
         adapter.setViewBinder(new ColorFrameViewBinder()); // 性別の文字色を変えるために設定
@@ -45,11 +45,11 @@ public class UserListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent,
                                     View view, int pos, long id) {
                 // アイテム選択時
-                // 選択アイテムのユーザの名前を取得
-                TextView tv = (TextView)view.findViewById(R.id.textView4);
-                String value = tv.getText().toString();
+                // 選択アイテムのuseridを取得
+                Map<String, String> user = usersList.get(pos);
+                String userid = user.get("userid");
 
-                Log.d("selectList",value);
+                Log.d("selectList",userid);
             }
         });
 
@@ -59,6 +59,6 @@ public class UserListActivity extends AppCompatActivity {
     /*@Override
     protected void onDestroy() {
         super.onDestroy();
-        dbHelper.deleteTable();
+        dbHelper.deleteDataOfTable();
     }*/
 }

@@ -24,7 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // 画面構成をおこなうlayoutファイル(xml)の指定
         Log.d("call","onCreate"); // AndroidStudioのログ(Logcat)
 
-        //new DBHelper(this).deleteTable();
+        DBHelper dbHelper = new DBHelper(this); // DBを操作するクラスを宣言
+
+        // データを追加
+        dbHelper.createUser("アリス",15,"女");
+        dbHelper.createUser("ボブ", 22, "男");
+        dbHelper.createUser("チャーリー", 18, "男");
+        dbHelper.createUser("デイブ", 20, "男");
 
         // activity_mainで用意したボタンの使用（Listenerの設定）
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {

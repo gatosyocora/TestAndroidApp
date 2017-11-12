@@ -1,4 +1,4 @@
-/* ローカルDBへ操作を行う */
+/* ローカルDBへ操作を行うクラス */
 package jp.dmarch.sampleappcation;
 
 import android.content.ContentValues;
@@ -72,7 +72,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
             cursor.moveToFirst(); // カーソルを一番最初に持ってくる
             // mapにデータを追加する
-            map.put("userId", String.valueOf(cursor.getInt(cursor.getColumnIndex("userid"))));
+            map.put("userid", String.valueOf(cursor.getInt(cursor.getColumnIndex("userid"))));
             map.put("name", cursor.getString(cursor.getColumnIndex("name")));
             map.put("age", String.valueOf(cursor.getInt(cursor.getColumnIndex("age"))));
             map.put("gender", cursor.getString(cursor.getColumnIndex("gender")));
@@ -104,11 +104,11 @@ public class DBHelper extends SQLiteOpenHelper{
         return users;
     }
 
-    public void deleteTable() {
-        Log.d("DBHelper","start deleteTable");
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
-        db.close();
-    }
+    // ローカルDBのすべてのデータを削除
+    /*public void deleteDataOfTable() {
+        SQLiteDatabase db = this.getWritableDatabase(); // DBへ接続
+        db.delete(TABLE_NAME, null, null); // すべてのデータを削除
+        db.close(); // DBを切断
+    }*/
 
 }
