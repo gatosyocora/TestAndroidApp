@@ -16,14 +16,13 @@ public class ColorFrameViewBinder implements SimpleAdapter.ViewBinder {
         // このViewが性別を表示するViewかどうか
         if (view.getId() == R.id.textView6) {
             TextView tv = (TextView) view; // ViewをTextViewに変換
-            String gender = data.toString(); // dataを文字列に変換
             // genderが男なら青色, 女なら赤色に設定
-            if (gender == "男") {
+            if (s.equals("男")) {
                 tv.setTextColor(Color.BLUE);
             } else {
                 tv.setTextColor(Color.RED);
             }
-            tv.setText(data.toString()); // 男or女を表示
+            tv.setText(s); // 男or女を表示
             return true;
         }
         return false;
