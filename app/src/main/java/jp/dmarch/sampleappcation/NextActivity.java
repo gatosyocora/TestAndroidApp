@@ -50,5 +50,16 @@ public class NextActivity extends AppCompatActivity{
             }
         });
 
+        // activity_nextで用意したボタンの使用（Listenerの設定）
+        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // クリック時の処理
+                Intent intent = new Intent(getApplicationContext(), TabActivity.class); // 切り替え準備
+                startActivity(intent); // Activity切り替え
+
+            }
+        });
+
     }
 }
