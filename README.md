@@ -2,6 +2,18 @@
 # TestAndroidApp
 大学の講義でAndroidアプリを作成するので使いそうな機能とか使ってみてます。
 
+## 開発環境
+以下はAndroid StudioのFile>Project Structure等で確認できます
+|OS|Windows10|
+|IDE|Android Studio|
+|Cradle Version|4.1|
+|Android Plugin Version|3.0.0|
+|Complie Sdk Version|API26|
+|Min Sdk Version|API19|
+|Target Sdk Version|API26|
+
+
+
 ## 実装済み（確認済み）
 * Activityのライフサイクル
 * Activity間のデータの受け渡し
@@ -13,12 +25,12 @@
 * すべてのクラスからの複数データへのアクセス(ローカルDB)
 * リスト選択
 * タブ切り替え
+* GPS
 
 ## 実装予定（確認予定）
 * カメラ
 * WebAPIの利用
 * サーバのデータベースへのアクセス
-* GPS
 * Bluetooth
 
 ## 実行
