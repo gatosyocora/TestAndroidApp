@@ -12,6 +12,14 @@
 * Min Sdk Version : API19
 * Target Sdk Version : API26
 
+|種類|バージョン|
+|:--:|:-------:|
+|Cradle Version|4.1|
+|Android Plugin Version|3.0.0|
+|Complie Sdk Version|API26|
+|Min Sdk Version|API19|
+|Target Sdk Version|API26|
+
 
 
 ## 実装済み（確認済み）
