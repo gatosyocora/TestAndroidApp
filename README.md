@@ -3,15 +3,10 @@
 大学の講義でAndroidアプリを作成するので使いそうな機能とか使ってみてます。
 
 ## 開発環境
-以下はAndroid StudioのFile>Project Structure等で確認できます
 * OS : Windows10 
 * IDE : Android Studio
-* Cradle Version : 4.1
-* Android Plugin Version : 3.0.0
-* Complie Sdk Version : API26
-* Min Sdk Version : API19
-* Target Sdk Version : API26
 
+以下はAndroid StudioのFile>Project Structureで確認できます
 |種類|バージョン|
 |:--:|:-------:|
 |Cradle Version|4.1|
