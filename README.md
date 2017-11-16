@@ -14,6 +14,10 @@
 | Min Sdk Version | API19 |
 | Target Sdk Version | API26 |
 
+|リンゴ|ブドウ|バナナ|
+|---|---|---|
+|10|20|30|
+
 
 
 ## 実装済み（確認済み）
