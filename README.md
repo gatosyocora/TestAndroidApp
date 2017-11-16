@@ -14,8 +14,8 @@
 | Min Sdk Version | API19 |
 | Target Sdk Version | API26 |
 
-|---|---|
-|OS|Windows 10|
+|---|--------------|
+|OS |Windows 10    |
 |IDE|Android Studio|
 
 
