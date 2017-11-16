@@ -4,6 +4,7 @@
 
 ## 開発環境
 以下はAndroid StudioのFile>Project Structure等で確認できます
+|:------|:-----------:|
 |OS|Windows10|
 |IDE|Android Studio|
 |Cradle Version|4.1|
