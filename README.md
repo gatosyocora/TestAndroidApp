@@ -4,6 +4,7 @@
 
 ## 開発環境
 以下はAndroid StudioのFile>Project Structure等で確認できます
+|Sdkとか||
 |:------|:-----------:|
 |OS|Windows10|
 |IDE|Android Studio|
