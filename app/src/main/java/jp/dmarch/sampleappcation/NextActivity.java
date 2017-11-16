@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -24,7 +25,8 @@ public class NextActivity extends AppCompatActivity{
         textview.setText(mes); // 受け取ったテキストデータを表示
 
         // activity_nextで用意したボタンの使用（Listenerの設定）
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+        Button btnLeft = (Button)findViewById(R.id.button2);
+        btnLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // クリック時の処理
@@ -40,7 +42,8 @@ public class NextActivity extends AppCompatActivity{
         });
 
         // activity_nextで用意したボタンの使用（Listenerの設定）
-        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+        Button btnCenter = (Button)findViewById(R.id.button6);
+        btnCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // クリック時の処理
@@ -51,7 +54,8 @@ public class NextActivity extends AppCompatActivity{
         });
 
         // activity_nextで用意したボタンの使用（Listenerの設定）
-        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+        Button btnRight = (Button)findViewById(R.id.button7);
+        btnRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // クリック時の処理
