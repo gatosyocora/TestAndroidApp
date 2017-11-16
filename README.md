@@ -7,6 +7,7 @@
 * IDE : Android Studio
 
 以下はAndroid StudioのFile>Project Structureで確認できます
+
 |種類|バージョン|
 |:--:|:-------:|
 |Cradle Version|4.1|
