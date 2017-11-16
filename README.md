@@ -4,15 +4,15 @@
 
 ## 開発環境
 以下はAndroid StudioのFile>Project Structure等で確認できます
-|Sdkとか||
+| Sdkとか ||
 |:------|:-----------:|
-|OS|Windows10|
-|IDE|Android Studio|
-|Cradle Version|4.1|
-|Android Plugin Version|3.0.0|
-|Complie Sdk Version|API26|
-|Min Sdk Version|API19|
-|Target Sdk Version|API26|
+| OS | Windows10 |
+| IDE | Android Studio |
+| Cradle Version | 4.1 |
+| Android Plugin Version | 3.0.0 |
+| Complie Sdk Version | API26 |
+| Min Sdk Version | API19 |
+| Target Sdk Version | API26 |
 
 
 
