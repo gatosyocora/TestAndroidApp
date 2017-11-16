@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /*
 写真共有
 https://dev.classmethod.jp/smartphone/android/android-tips-35-sharecompat/
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
 
     private Gps gps;
+    private Bluetooth bt;
 
     // アプリを起動したとき初めに実行される
     @Override // ←親クラスで存在するメソッドの内容を変更する際につける
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.createUser("チャーリー", 18, "男");
         dbHelper.createUser("デイブ", 20, "男");
 
+        bt = new Bluetooth(this);
 
         // activity_mainで用意したボタンの使用（Listenerの設定）
         Button btn = (Button) findViewById(R.id.button);
@@ -114,9 +118,16 @@ public class MainActivity extends AppCompatActivity {
 
         // activity_mainで用意したボタンの使用（Listenerの設定）
         Button btnRight = (Button)findViewById(R.id.button5);
+        btnRight.setText("Bluetooth");
         btnRight.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { message = "botti"; }
+            public void onClick(View v) {
+                message = "botti";
+                
+                ArrayList<String> deviceList = bt.getConnectableDeviceByBluetooth();
+
+                tv.setText(deviceList.toString()); // デバイスリストを表示
+            }
         });
 
     }
