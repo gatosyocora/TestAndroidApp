@@ -31,10 +31,10 @@
 * タブ切り替え
 * GPS
 * Bluetooth
+* GoogleMap
 
 ## 実装予定（確認予定）
 * カメラ
-* GoogleMap
 * サーバのデータベースへのアクセス
 
 ## 実行
