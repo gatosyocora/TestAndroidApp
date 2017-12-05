@@ -3,14 +3,18 @@
 大学の講義でAndroidアプリを作成するので使いそうな機能とか使ってみてます。
 
 ## 開発環境
-以下はAndroid StudioのFile>Project Structure等で確認できます
 * OS : Windows10 
 * IDE : Android Studio
-* Cradle Version : 4.1
-* Android Plugin Version : 3.0.0
-* Complie Sdk Version : API26
-* Min Sdk Version : API19
-* Target Sdk Version : API26
+
+以下はAndroid StudioのFile>Project Structureで確認できます
+
+|種類|バージョン|
+|:--:|:-------:|
+|Cradle Version|4.1|
+|Android Plugin Version|3.0.0|
+|Complie Sdk Version|API26|
+|Min Sdk Version|API19|
+|Target Sdk Version|API26|
 
 
 
@@ -26,12 +30,12 @@
 * リスト選択
 * タブ切り替え
 * GPS
+* Bluetooth
+* GoogleMap
 
 ## 実装予定（確認予定）
 * カメラ
-* WebAPIの利用
 * サーバのデータベースへのアクセス
-* Bluetooth
 
 ## 実行
 一番上の階層にあるapkファイルをAndroid端末にインストールして実行すれば
