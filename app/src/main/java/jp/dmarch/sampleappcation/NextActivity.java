@@ -3,6 +3,7 @@ package jp.dmarch.sampleappcation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class NextActivity extends AppCompatActivity{
         // activity_nextで用意したEditTextを取得
         TextView textview = (TextView) findViewById(R.id.textView);
         textview.setText(mes); // 受け取ったテキストデータを表示
+
 
         // activity_nextで用意したボタンの使用（Listenerの設定）
         Button btnLeft = (Button)findViewById(R.id.button2);

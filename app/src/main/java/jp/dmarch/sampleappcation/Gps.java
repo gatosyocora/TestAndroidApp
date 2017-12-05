@@ -13,7 +13,18 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
-public class Gps implements LocationListener{
+
+/*
+ * GPS
+ * https://qiita.com/yasumodev/items/5f0f030f0ebfcecdff11
+ * http://www.adakoda.com/android/000125.html
+ * https://akira-watson.com/android/gps.html
+ * https://akira-watson.com/android/gps-permission.html
+ * http://ria10.hatenablog.com/entry/20121109/1352470160
+ * http://mslgt.hatenablog.com/entry/2015/12/29/004133
+ */
+
+public class Gps implements LocationListener {
 
     private double gpsData[] = {0.0, 0.0};
     public LocationManager mLocationManager;
@@ -41,12 +52,11 @@ public class Gps implements LocationListener{
         }
 
 
-
         if (isAvailableGps()) {
             Log.d("GPS", "start GPS");
             // 位置情報の更新を開始
             mLocationManager.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER, // 使う機能(GPS機能かWifi機能か)
+                    LocationManager.GPS_PROVIDER, // 使う機能(GPS機能かWifi機能か) // NETWORK_PROVIDER
                     1000, // 通知のための最小時間間隔（ミリ秒）
                     1, // 通知のための最小距離間隔（メートル）
                     this // リスナー
@@ -57,7 +67,7 @@ public class Gps implements LocationListener{
     }
 
     //　GPSの監視を終了させるメソッド
-    public void finishGps(){
+    public void finishGps() {
         // 位置情報の更新の取得を終了
         mLocationManager.removeUpdates(this);
     }
@@ -65,6 +75,16 @@ public class Gps implements LocationListener{
     // 現在地を返すメソッド
     public double[] getCurrentLocation() {
         if (!isAvailableGps()) enableGpsSetting();
+        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return this.gpsData;
+        }
+        // もしGPSでデータを取得できていないならWIFIで計測した最新データを表示
+        if (this.gpsData[0] == 0.0 && this.gpsData[1] == 0.0) {
+            Location local = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            this.gpsData[0] = local.getLatitude();
+            this.gpsData[1] = local.getLongitude();
+        }
         return this.gpsData;
     }
 

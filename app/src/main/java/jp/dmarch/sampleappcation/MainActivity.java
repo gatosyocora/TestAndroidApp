@@ -16,13 +16,8 @@ import java.util.ArrayList;
 /*
 写真共有
 https://dev.classmethod.jp/smartphone/android/android-tips-35-sharecompat/
-GPS
-https://qiita.com/yasumodev/items/5f0f030f0ebfcecdff11
-http://www.adakoda.com/android/000125.html
-https://akira-watson.com/android/gps.html
-https://akira-watson.com/android/gps-permission.html
-http://ria10.hatenablog.com/entry/20121109/1352470160
-http://mslgt.hatenablog.com/entry/2015/12/29/004133
+フローティングアクションボタン
+http://android.keicode.com/basics/ui-floatingactionbutton.php
  */
 
 
@@ -57,7 +52,13 @@ public class MainActivity extends AppCompatActivity {
         dbHelper.createUser("チャーリー", 18, "男");
         dbHelper.createUser("デイブ", 20, "男");
 
-        bt = new Bluetooth(this);
+        // GPS
+        //gps = new Gps(MainActivity.this);
+        //gps.startGps();
+
+        // Bluetooth
+        bt = new Bluetooth(MainActivity.this);
+        bt.startBluetooth();
 
         // activity_mainで用意したボタンの使用（Listenerの設定）
         Button btn = (Button) findViewById(R.id.button);
@@ -68,6 +69,18 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), NextActivity.class); // 切り替え準備
                 intent.putExtra("mesId", message); // 送りたいデータを付与
                 startActivityForResult(intent, NEXT_ACTIVITY_ID); // Activity切り替え
+            }
+        });
+
+        // activity_mainで用意したボタンの使用（Listenerの設定）
+        Button mapBtn = (Button) findViewById(R.id.button9);
+        mapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // クリック時の処理
+                Intent intent = new Intent(getApplicationContext(), MapActivity.class); // 切り替え準備
+                intent.putExtra("mesId", message); // 送りたいデータを付与
+                startActivity(intent); // Activity切り替え
             }
         });
 
@@ -102,11 +115,6 @@ public class MainActivity extends AppCompatActivity {
              public void onClick(View v) {
                  message = "gato";
 
-                 if (gps == null) {
-                     // GPSの測定を開始
-                     gps = new Gps(MainActivity.this);
-                 }
-
                  if (gps.isAvailableGps()) {
                      // 現在地を取得する
                      double gpsData[] = gps.getCurrentLocation();
@@ -137,6 +145,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // 特に処理は書いていない
+    }
+
+    // アプリを切ったときに実行される
+    @Override
+    protected  void onDestroy() {
+        super.onDestroy();
+        bt.finishBluetooth();
     }
 
     //**********************ここから下は主な処理なし（ライフサイクル検証のため書いただけ）***********************
@@ -173,13 +188,6 @@ public class MainActivity extends AppCompatActivity {
     protected  void onStop() {
         super.onStop();
         Log.d("call","onStop");
-    }
-
-    // アプリを切ったときに実行される
-    @Override
-    protected  void onDestroy() {
-        super.onDestroy();
-        Log.d("call","onDestroy");
     }
 
     // スマホのホームから戻ってきたとき初めに実行される

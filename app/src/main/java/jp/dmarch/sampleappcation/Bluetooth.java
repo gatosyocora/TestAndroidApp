@@ -16,6 +16,7 @@ import java.util.ArrayList;
  * http://www.kotemaru.org/2013/10/30/android-bluetooth-sample.html
  * https://techbooster.org/android/5535/
  * http://seesaawiki.jp/w/moonlight_aska/d/Bluetooth%A5%C7%A5%D0%A5%A4%A5%B9%A4%F2%C3%B5%A4%B9
+ * http://d-kami.hatenablog.com/entry/20101212/1292145156
  */
 
 public class Bluetooth {
@@ -64,12 +65,28 @@ public class Bluetooth {
 
                 // デバイスを発見したとき
                 if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                    // デバイスを取得
+                    Log.d("Bluetooth", "found device");
                     BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE); // 見つかったデバイス
-                    String deviceName = device.getName().toString();  // 見つかったデバイスの名前を取得
-                    int rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE); // 見つかったデバイスの電波強度を取得
-                    deviceList.add(deviceName+": RSSI="+String.valueOf(rssi)); // 名前をデバイスリストに追加
-                    Log.d("Bluetooth", "find "+deviceName);
+                    String deviceName = null;
+                    if ((deviceName = device.getName()) != null) {
+                        int rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE); // 見つかったデバイスの電波強度を取得
+                        deviceList.add(deviceName); // 名前をデバイスリストに追加
+                        Log.d("Bluetooth", "found " + deviceName + ": rssi="+String.valueOf(rssi)+"\n");
+
+                        // デバイスの名前を検出したとき
+                    /*if(BluetoothDevice.ACTION_NAME_CHANGED.equals(action)) {
+                        BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE); // 見つかったデバイス
+                        String deviceName = device.getName().toString();  // 見つかったデバイスの名前を取得
+                        //int rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE); // 見つかったデバイスの電波強度を取得
+                        deviceList.add(deviceName); // 名前をデバイスリストに追加
+                        Log.d("Bluetooth", "found "+deviceName);
+                    }*/
+                    }
+                }
+
+                // デバイスが見つからないとき
+                else if(BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+                    Log.d("Bluetooth", "Not found ");
                 }
             }
         };
