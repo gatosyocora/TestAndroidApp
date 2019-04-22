@@ -48,4 +48,4 @@
 ## 実装画面
 <img src="./image/Screenshot_20171110-181723.png" width="300">
 <img src="./image/Screenshot_20171110-181727.png" width="300">
-<img src="./image/Screenshot_0171110-181732.png" width="300">
+<img src="./image/Screenshot_20171110-181732.png" width="300">
